@@ -1,5 +1,5 @@
 <template>
-    <footer>Footer here!</footer>
+    <footer>Copyright</footer>
 </template>
 
 <script>
@@ -7,5 +7,6 @@ export default {
     name: 'footer'
 }
 </script>
-<style></style>
- 
+<style>
+
+</style>

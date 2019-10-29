@@ -11,11 +11,21 @@
 
             <b-form-checkbox class="mb-2 mr-sm-2 mb-sm-0">Remember me</b-form-checkbox>
         </b-form>
+
+        <button v-on:click="dispalyAlert()">SignIn</button>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'signIn'
+    name: 'signIn',
+    methods: {
+        dispalyAlert: function () {
+            this.$http.get('')
+                .then(function (result) {
+                    console.log(result)
+                })
+        }
+    }
 }
 </script>

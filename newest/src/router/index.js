@@ -1,11 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import axios from 'axios'
 import HelloWorld from '@/components/HelloWorld'
 import MainBoard from '@/components/board/MainBoard'
 import SignIn from '@/components/users/signIn'
 import SignUp from '@/components/users/signUp'
-import Auth from '@/components/testdata/auth'
+import axios from 'axios'
 
 Vue.use(Router)
 Vue.prototype.$http = axios
@@ -30,10 +29,5 @@ export default new Router({
         path: '/users/signUp',
         name: 'SignUp',
         component: SignUp
-    },
-    {
-        path: '/users/auth',
-        name: 'Auth',
-        component: Auth
     }]
 })

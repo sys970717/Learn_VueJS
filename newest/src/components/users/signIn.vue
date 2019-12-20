@@ -1,5 +1,6 @@
 <template>
     <div id="signIn">
+        <p>{{ message }}</p>
         <b-form>
             <b-input-group prepend="@" class="mb-2 mr-sm-2 mb-sm-0">
             <b-input v-model="form.email" id="inline-form-input-email" type="email" placeholder="아이디(이메일)" required></b-input>
@@ -17,14 +18,14 @@
 </template>
 
 <script>
-import Auth from '../testData/auth'
 export default {
     data () {
         return {
             form: {
                 email: '',
                 password: ''
-            }
+            },
+            message: 'HID'
         }
     },
     name: 'signIn',
@@ -34,7 +35,7 @@ export default {
                 email: this.form.email,
                 password: this.form.password
             }
-            let users = Auth.signIn(signInData)
+            console.log(signInData)
         }
     }
 }

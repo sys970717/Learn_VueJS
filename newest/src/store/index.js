@@ -4,7 +4,7 @@ import axios from 'axios'
 
 Vue.use(Vuex)
 
-const resoureceHost = 'http://localhost:8080'
+const resoureceHost = 'http://localhost'
 
 export default new Vuex.Store({
     state: {
@@ -23,8 +23,8 @@ export default new Vuex.Store({
         }
     },
     actions: {
-        LOGIN ({commit}, {email, password}) {
-            return axios.post(`${resoureceHost}/login`, {email, password})
+        LOGIN ({commit}, {userEmail, userPw}) {
+            return axios.post(`${resoureceHost}/user/login`, {'user_email': userEmail, 'user_pw': userPw})
                 .then(({data}) => commit('LOGIN', data))
         },
         LOGOUT ({commit}) {

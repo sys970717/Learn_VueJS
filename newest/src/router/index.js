@@ -9,6 +9,14 @@ import axios from 'axios'
 Vue.use(Router)
 Vue.prototype.$http = axios
 
+function requireAuth () {
+    return (from, to, next) => {
+        const isAuthneticated = false
+        if (isAuthneticated) return next()
+        next('/users/signIn?reReqUrl=me')
+    }
+}
+
 export default new Router({
     routes: [{
         path: '/',
@@ -18,7 +26,8 @@ export default new Router({
     {
         path: '/board',
         name: 'MainBoard',
-        component: MainBoard
+        component: MainBoard,
+        beforeEnter: requireAuth()
     },
     {
         path: '/users/signIn',

@@ -1,7 +1,7 @@
 <template>
     <div id="signIn">
         <p>{{ message }}</p>
-        <b-form>
+        <b-form @submit.prevent="dispalyAlert()">
             <b-input-group prepend="@" class="mb-2 mr-sm-2 mb-sm-0">
             <b-input v-model="form.email" id="inline-form-input-email" type="email" placeholder="아이디(이메일)" required></b-input>
             </b-input-group>
@@ -11,9 +11,9 @@
             </b-input-group>
 
             <b-form-checkbox class="mb-2 mr-sm-2 mb-sm-0">Remember me</b-form-checkbox>
+            <button>SignIn</button>
         </b-form>
 
-        <button v-on:click="dispalyAlert()">SignIn</button>
     </div>
 </template>
 
@@ -31,11 +31,16 @@ export default {
     name: 'signIn',
     methods: {
         dispalyAlert: function () {
-            var signInData = {
-                email: this.form.email,
-                password: this.form.password
+            // console.log(this.form.email)
+            const signInData = {
+                userEmail: this.form.email,
+                userPw: this.form.password
             }
-            console.log(signInData)
+            this.$store.dispatch('LOGIN', signInData)
+                .then(() => this.redirect())
+                .catch(({message}) => {
+                    this.msg = message
+                })
         }
     }
 }

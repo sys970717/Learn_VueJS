@@ -14,6 +14,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(BootstrapVue)
 Vue.use(VueLodash, lodash)
+Vue.use(store)
 
 Vue.prototype.$http = axios
 Vue.config.productionTip = false

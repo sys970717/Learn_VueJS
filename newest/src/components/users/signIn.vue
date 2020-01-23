@@ -41,6 +41,10 @@ export default {
                 .catch(({message}) => {
                     this.msg = message
                 })
+        },
+        redirect: function () {
+            console.log('redirect')
+            this.$router.push('/board')
         }
     }
 }

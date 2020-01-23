@@ -4,7 +4,6 @@
             <b-nav-item to="/users/signIn">로그인</b-nav-item>
             <b-nav-item to="/users/signUp">회원가입</b-nav-item>
         </b-nav>
-
     </div>
 </template>
 
